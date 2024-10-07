@@ -1,0 +1,47 @@
+
+#-----------------------------------------------
+#Config that does not have impact on performance
+#-----------------------------------------------
+
+
+random_seed: 0b011011
+
+#-----------------------------------------------
+#1. Dataset
+#-----------------------------------------------
+
+dataset:
+  path_dir: [
+      "/mnt/hdd/Dataset_BESSL_p2/FSD50K_WB_SEGMENT",
+      "/mnt/hdd/Dataset_BESSL_p2/MUSDB_WB_SEGMENT_", 
+      "/mnt/hdd/Dataset_BESSL_p2/VCTK_WB_SEGMENT_"
+                  ]
+  path_spec: [
+      "/mnt/hdd/Dataset_BESSL_p2/FSD_spec",
+      "/mnt/hdd/Dataset_BESSL_p2/MUSDB_spec",
+      "/mnt/hdd/Dataset_BESSL_p2/VCTK_spec",
+  ]
+  batch_size: 64
+  seg_len: 2
+  ## Segment audio length
+  num_workers: 8
+
+model:
+  in_channels: 5
+
+optim:
+  learning_rate: 0.0001
+  
+  B1: 0.5
+  B2: 0.9
+
+train:
+  epoch_save_start: 1
+  val_epoch: 1
+  
+  ckpt_save_dir: "./ckpt_bottleneck2_D5"
+  max_epochs: 100
+
+  # True if load from previous
+  ckpt: False
+  ckpt_path: "/mnt/hdd/weights/kmeans/kmeans_modelweight_64n_wavlm.pkl"

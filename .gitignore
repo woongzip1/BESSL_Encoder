@@ -1,0 +1,8 @@
+ckpt*/
+output*/
+exp_d10.yaml
+wandb/
+weights/
+
+__pycache__/
+demo_datasetfor*.ipynb
